@@ -1,2 +1,7 @@
 # leaflet-map-polygon-hover2
-trying to pull data directly from GeoJSON, but reset highlight function not yet working
+
+not yet working
+
+
+## Demo
+- http://jackdougherty.github.io/leaflet-map-polygon-hover2/index.html
