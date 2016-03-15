@@ -55,22 +55,18 @@ function highlightFeature(e) {
   var layer = e.target;
 
   layer.setStyle({
-    weight: 5,
+    weight: 3,
     color: '#666',
     dashArray: '',
     fillOpacity: 0.7
   });
-
-  if (!L.Browser.ie && !L.Browser.opera) {
-    layer.bringToFront();
-  }
 
   info.update(layer.feature.properties);
 }
 
 // rewrote this function from original to setStyle(style)
 function resetHighlight(e) {
-  geojson.setStyle(style);
+  geoJsonLayer.setStyle(style);
   info.update();
 }
 
@@ -86,9 +82,9 @@ function onEachFeature(feature, layer) {
   });
 }
 
-// insert the GeoJSON data file name in your local directory
+// insert the GeoJSON data file name in your local directory; removed var = geoJsonLayer since this is declared above
 $.getJSON("ct-towns-density.geojson", function (data) {
-  var geoJsonLayer = L.geoJson(data, {
+  geoJsonLayer = L.geoJson(data, {
     style: style,
     onEachFeature: onEachFeature
   }).addTo(map);
