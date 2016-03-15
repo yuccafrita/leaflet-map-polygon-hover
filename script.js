@@ -3,15 +3,14 @@ var map = L.map('map').setView([41.5, -72.7], 9);
 // customize source link to your GitHub repo
 map.attributionControl
 .setPrefix('View <a href="http://github.com/jackdougherty/leaflet-map-polygon-hover-geojson">open-source code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
-
 map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census</a>');
 
-
+// basemap layer
 new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 }).addTo(map);
 
-// control that shows state info on hover
+// this control shows polygon info on hover
 var info = L.control();
 
 info.onAdd = function (map) {
@@ -20,7 +19,7 @@ info.onAdd = function (map) {
   return this._div;
 };
 
-/* match data to column header */
+// revise text and variables to match those in your GeoJSON data
 info.update = function (props) {
   this._div.innerHTML = '<h4>Connecticut Town<br />Population density 2010</h4>' +  (props ?
     '<b>' + props.town + '</b><br />' + props.density2010 + ' people / mi<sup>2</sup>'
@@ -28,7 +27,7 @@ info.update = function (props) {
 };
 info.addTo(map);
 
-// get color depending on population density value
+// revise ranges and colors to match your data; see http://colorbrewer.org
 function getColor(d) {
   return d > 5000 ? '#800026' :
          d > 1000 ? '#BD0026' :
@@ -40,6 +39,7 @@ function getColor(d) {
                     '#FFEDA0';
 }
 
+// rewrite the getColor property to match your GeoJson data column header
 function style(feature) {
   return {
     weight: 2,
@@ -47,7 +47,7 @@ function style(feature) {
     color: 'white',
     dashArray: '3',
     fillOpacity: 0.7,
-    fillColor: getColor(feature.properties.density2010) /* match to data column header */
+    fillColor: getColor(feature.properties.density2010)
   };
 }
 
@@ -68,10 +68,9 @@ function highlightFeature(e) {
   info.update(layer.feature.properties);
 }
 
-// This is the problematic variable and function
-var geojson;
+// rewrote this function from original to setStyle(style)
 function resetHighlight(e) {
-  geojson.resetStyle(e.target);
+  geojson.setStyle(style);
   info.update();
 }
 
@@ -87,7 +86,7 @@ function onEachFeature(feature, layer) {
   });
 }
 
-// insert data file to be uploaded below
+// insert the GeoJSON data file name in your local directory
 $.getJSON("ct-towns-density.geojson", function (data) {
   var geoJsonLayer = L.geoJson(data, {
     style: style,
@@ -99,7 +98,7 @@ var legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function (map) {
 
-// set grades to match ranges above
+// revise grades to match your ranges above
   var div = L.DomUtil.create('div', 'info legend'),
     grades = [0, 30, 50, 100, 200, 500, 1000, 5000],
     labels = [],
