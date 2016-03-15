@@ -2,7 +2,7 @@ var map = L.map('map').setView([41.5, -72.7], 9);
 
 // customize source link to your GitHub repo
 map.attributionControl
-.setPrefix('View <a href="http://github.com/jackdougherty/leaflet-map-polygon-hover">open-source code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+.setPrefix('View <a href="http://github.com/jackdougherty/leaflet-map-polygon-hover-geojson">open-source code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
 
 map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census</a>');
 
@@ -68,17 +68,10 @@ function highlightFeature(e) {
   info.update(layer.feature.properties);
 }
 
-// This is the original variable declaration and function
-// var geojson;
-//
-// function resetHighlight(e) {
-//   geojson.resetStyle(e.target);
-//   info.update();
-// }
-
-// my attempt to rewrite this
+// This is the problematic variable and function
+var geojson;
 function resetHighlight(e) {
-  resetStyle(e.target);
+  geojson.resetStyle(e.target);
   info.update();
 }
 
