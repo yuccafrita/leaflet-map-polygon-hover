@@ -1,6 +1,7 @@
+// Modify the center point and zoom level
 var map = L.map('map').setView([41.5, -72.7], 9);
 
-// customize source link to your GitHub repo
+// Modify links to your GitHub repo and data source credit
 map.attributionControl
 .setPrefix('View <a href="http://github.com/jackdougherty/leaflet-map-polygon-hover-geojson">open-source code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
 map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census</a>');
@@ -19,7 +20,7 @@ info.onAdd = function (map) {
   return this._div;
 };
 
-// revise text and variables to match those in your GeoJSON data
+// Modify text and variables to match those in your GeoJSON data
 info.update = function (props) {
   this._div.innerHTML = '<h4>Connecticut Town<br />Population density 2010</h4>' +  (props ?
     '<b>' + props.town + '</b><br />' + props.density2010 + ' people / mi<sup>2</sup>'
@@ -27,7 +28,7 @@ info.update = function (props) {
 };
 info.addTo(map);
 
-// revise ranges and colors to match your data; see http://colorbrewer.org
+// Modify ranges and colors to match your data; see http://colorbrewer.org
 function getColor(d) {
   return d > 5000 ? '#800026' :
          d > 1000 ? '#BD0026' :
@@ -39,34 +40,32 @@ function getColor(d) {
                     '#FFEDA0';
 }
 
-// rewrite the getColor property to match your GeoJson data column header
+// Modify the getColor property to match column header in your GeoJson file
 function style(feature) {
   return {
-    weight: 2,
+    weight: 1,
     opacity: 1,
-    color: 'white',
-    dashArray: '3',
+    color: 'black',
     fillOpacity: 0.7,
     fillColor: getColor(feature.properties.density2010)
   };
 }
 
+// this highlights the layer on hover
 function highlightFeature(e) {
   var layer = e.target;
 
   layer.setStyle({
-    weight: 3,
-    color: '#666',
-    dashArray: '',
+    weight: 4,
+    color: 'black',
     fillOpacity: 0.7
   });
 
   info.update(layer.feature.properties);
 }
 
-// rewrote this function from original to setStyle(style)
 function resetHighlight(e) {
-  geoJsonLayer.setStyle(style);
+  geoJsonLayer.setStyle(style); /* revised from original tutorial*/
   info.update();
 }
 
@@ -82,7 +81,7 @@ function onEachFeature(feature, layer) {
   });
 }
 
-// insert the GeoJSON data file name in your local directory; removed var = geoJsonLayer since this is declared above
+// Modify to upload GeoJSON data file from your local directory; removed var = geoJsonLayer since this is declared above
 $.getJSON("ct-towns-density.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
     style: style,
@@ -94,7 +93,7 @@ var legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function (map) {
 
-// revise grades to match your ranges above
+// Modify grades to match the ranges above
   var div = L.DomUtil.create('div', 'info legend'),
     grades = [0, 30, 50, 100, 200, 500, 1000, 5000],
     labels = [],

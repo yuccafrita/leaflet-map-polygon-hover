@@ -19,6 +19,7 @@ var data = {geojson};
 
 ## Credits
 - Leaflet choropleth tutorial (with US state population density example): http://leafletjs.com/examples/choropleth.html
+- solved reset highlight problem http://stackoverflow.com/questions/30524035/geojson-getjson-and-remove-higlight-mouse-out-on-leaflet
 
 ## Create your own
 
