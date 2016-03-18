@@ -1,21 +1,15 @@
-# leaflet-map-polygon-hover-geojson
-Leaflet thematic polygon (choropleth) map, with hover feature, pulling data from GeoJSON file, with Connecticut town population density example
+# leaflet-map-polygon-hover
+Leaflet thematic polygon (choropleth) map, with hover info window, using GeoJSON data
 
 ## Demo
-- http://jackdougherty.github.io/leaflet-map-polygon-hover-geojson/index.html
+- http://jackdougherty.github.io/leaflet-map-polygon-hover/index.html
 
 ## Compare with
 - similar version that draws data from a .js file with declared variable
-```
-var data = {geojson};
-```
-- http://jackdougherty.github.io/leaflet-map-polygon-hover/index.html
+- http://github.com/jackdougherty/leaflet-map-polygon-hover-from-js/index.html
 
-## Pro
+## Advantage
 - This GeoJSON version is simpler for novices to understand, since they can create and join GeoJSON data file in MapShaper.org
-
-## Con (or TO DO)
-- the resetHighlight setStyle function in this version needs improvement
 
 ## Credits
 - Leaflet choropleth tutorial (with US state population density example): http://leafletjs.com/examples/choropleth.html
