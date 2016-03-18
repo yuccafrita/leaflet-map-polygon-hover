@@ -1,9 +1,9 @@
-// Modify the center point and zoom level
+// Edit the center point and zoom level
 var map = L.map('map').setView([41.5, -72.7], 9);
 
-// Modify links to your GitHub repo and data source credit
+// Edit links to your GitHub repo and data source credit
 map.attributionControl
-.setPrefix('View <a href="http://github.com/jackdougherty/leaflet-map-polygon-hover-geojson">open-source code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+.setPrefix('View <a href="http://github.com/jackdougherty/leaflet-map-polygon-hover">open-source code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
 map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census</a>');
 
 // basemap layer
@@ -20,7 +20,7 @@ info.onAdd = function (map) {
   return this._div;
 };
 
-// Modify text and variables to match those in your GeoJSON data
+// Edit text and variables to match those in your GeoJSON data
 info.update = function (props) {
   this._div.innerHTML = '<h4>Connecticut Town<br />Population density 2010</h4>' +  (props ?
     '<b>' + props.town + '</b><br />' + props.density2010 + ' people / mi<sup>2</sup>'
@@ -28,7 +28,7 @@ info.update = function (props) {
 };
 info.addTo(map);
 
-// Modify ranges and colors to match your data; see http://colorbrewer.org
+// Edit ranges and colors to match your data; see http://colorbrewer.org
 function getColor(d) {
   return d > 5000 ? '#800026' :
          d > 1000 ? '#BD0026' :
@@ -40,7 +40,7 @@ function getColor(d) {
                     '#FFEDA0';
 }
 
-// Modify the getColor property to match column header in your GeoJson file
+// Edit the getColor property to match data column header in your GeoJson file
 function style(feature) {
   return {
     weight: 1,
@@ -81,7 +81,7 @@ function onEachFeature(feature, layer) {
   });
 }
 
-// Modify to upload GeoJSON data file from your local directory; removed var = geoJsonLayer since this is declared above
+// Edit to upload GeoJSON data file from your local directory; removed var = geoJsonLayer since this is declared above
 $.getJSON("ct-towns-density.geojson", function (data) {
   geoJsonLayer = L.geoJson(data, {
     style: style,
