@@ -1,5 +1,9 @@
 // Edit the center point and zoom level
-var map = L.map('map').setView([41.5, -72.7], 9);
+var map = L.map('map', {
+  center: [41.5, -72.7],
+  zoom: 9,
+  scrollWheelZoom: false
+});
 
 // Edit links to your GitHub repo and data source credit
 map.attributionControl
