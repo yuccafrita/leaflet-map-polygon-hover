@@ -55,10 +55,10 @@ function style(feature) {
   };
 }
 
-// this highlights the layer on hover
+// this highlights the layer on hover, also for mobile
 function highlightFeature(e) {
+  resetHighlight(e);
   var layer = e.target;
-
   layer.setStyle({
     weight: 4,
     color: 'black',
