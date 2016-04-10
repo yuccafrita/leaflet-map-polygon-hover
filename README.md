@@ -9,11 +9,12 @@ Leaflet thematic polygon (choropleth) map, with hover info window, using GeoJSON
 - Works in iOS and Android mobile devices
 
 ## Compare with
-- similar version that draws data from a .js file with declared variable http://github.com/jackdougherty/leaflet-map-polygon-hover-from-js/index.html
+- Standard LeafletJS choropleth tutorial http://leafletjs.com/examples/choropleth.html (which draws data from .js file with declared variable, and does not work on mobile devices), and similar version http://github.com/jackdougherty/leaflet-map-polygon-hover-from-js/index.html
 
 ## Credits
 - Leaflet choropleth tutorial (with US state population density example): http://leafletjs.com/examples/choropleth.html
 - Thanks for reset highlight solution http://stackoverflow.com/questions/30524035/geojson-getjson-and-remove-higlight-mouse-out-on-leaflet
+- Thanks for code functions @alvinschang Connecticut Mirror http://ctmirror.org
 - Thanks for code improvements @ilyankou
 
 ## Create your own
