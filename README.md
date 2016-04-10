@@ -4,20 +4,21 @@ Leaflet thematic polygon (choropleth) map, with hover info window, using GeoJSON
 ## Demo
 - http://jackdougherty.github.io/leaflet-map-polygon-hover/index.html
 
-## Compare with
-- similar version that draws data from a .js file with declared variable
-- http://github.com/jackdougherty/leaflet-map-polygon-hover-from-js/index.html
-
-## Advantage
+## Benefits
 - This GeoJSON version is simpler for novices to understand, since they can create and join GeoJSON data file in MapShaper.org
+- Works in iOS and Android mobile devices
+
+## Compare with
+- similar version that draws data from a .js file with declared variable http://github.com/jackdougherty/leaflet-map-polygon-hover-from-js/index.html
 
 ## Credits
 - Leaflet choropleth tutorial (with US state population density example): http://leafletjs.com/examples/choropleth.html
-- solved reset highlight problem http://stackoverflow.com/questions/30524035/geojson-getjson-and-remove-higlight-mouse-out-on-leaflet
+- Thanks for reset highlight solution http://stackoverflow.com/questions/30524035/geojson-getjson-and-remove-higlight-mouse-out-on-leaflet
+- Thanks for code improvements @ilyankou
 
 ## Create your own
 
-See chapter tutorials in http://DataVizForAll.org
+See tutorial in the Leaflet Template section of *Data Visualization for All* book http://DataVizForAll.org
 
 ####General overview of steps below
 - Join a GeoJSON polygon map with spreadsheet data
