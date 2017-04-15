@@ -2,6 +2,7 @@
 Leaflet thematic polygon (choropleth) map, with hover info window, using GeoJSON data
 
 ## Demo
+- https://yuccafrita.github.io/leaflet-map-polygon-hover/
 - http://jackdougherty.github.io/leaflet-map-polygon-hover/index.html
 
 ## Benefits
